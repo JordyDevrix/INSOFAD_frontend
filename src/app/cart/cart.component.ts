@@ -43,7 +43,7 @@ export class CartComponent implements OnInit {
   }
 
   getTotalPrice() {
-    this.productsPrice = this.cartProducts.reduce((acc, curr) => acc + curr.price, 0)
+    this.productsPrice = this.cartProducts.reduce((acc, curr) => acc + curr.productProperties[0].price, 0)
     this.totalPrice = this.productsPrice + this.shippingCosts;
   }
 

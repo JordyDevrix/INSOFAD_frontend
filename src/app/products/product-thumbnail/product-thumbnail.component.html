@@ -9,7 +9,7 @@
             <hr>
             <div style="text-align: center;">
               <button (click)="buyProduct(product)">Add to cart</button>
-              <p>{{ product.price | currency }}</p>
+              <p>{{ product.productProperties[0].price | currency }}</p>
             </div>
           </div>
         </div>

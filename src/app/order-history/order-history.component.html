@@ -23,7 +23,7 @@
                     Order number: {{ order.id }} <br>
                     Order status: {{ order.orderStatus }}
                 <hr>
-                @for (product of order.products; track $index) {
+                @for (product of order.orderProducts; track $index) {
                     <div class="product" style="display: flex; align-items: center; margin-bottom: 0.5rem">
                         <img style="margin-right: 20px;"
                         src="{{ product.imagePath }}" alt="{{ product.name }}">

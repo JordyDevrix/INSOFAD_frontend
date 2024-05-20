@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { Product } from '../models/product.model';
+import {OrderProduct} from "../models/orderproduct.model";
 
 const localStorageKey: string = "products-in-cart"
 
@@ -10,15 +11,15 @@ const localStorageKey: string = "products-in-cart"
   providedIn: 'root'
 })
 export class CartService {
-  private productsInCart: Product[] = [];
-  public $productInCart: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  private productsInCart: OrderProduct[] = [];
+  public $productInCart: BehaviorSubject<OrderProduct[]> = new BehaviorSubject<OrderProduct[]>([]);
 
   constructor() {
     this.loadProductsFromLocalStorage();
   }
 
-  public addProductToCart(product: Product) {
-    this.productsInCart.push(product);
+  public addProductToCart(orderProduct: OrderProduct) {
+    this.productsInCart.push(orderProduct);
     this.saveProductsAndNotifyChange();
   }
 
@@ -32,7 +33,7 @@ export class CartService {
     this.saveProductsAndNotifyChange();
 }
 
-  public allProductsInCart(): Product[] {
+  public allProductsInCart(): OrderProduct[] {
     return this.productsInCart.slice();
   }
 
@@ -41,15 +42,15 @@ export class CartService {
     this.$productInCart.next(this.productsInCart.slice());
   }
 
-  private saveProductsToLocalStorage(products: Product[]): void {
-    localStorage.setItem(localStorageKey, JSON.stringify(products))
+  private saveProductsToLocalStorage(orderProducts: OrderProduct[]): void {
+    localStorage.setItem(localStorageKey, JSON.stringify(orderProducts))
   }
 
   private loadProductsFromLocalStorage(): void {
     let productsOrNull = localStorage.getItem(localStorageKey)
     if (productsOrNull != null) {
 
-      let products: Product[] = JSON.parse(productsOrNull)
+      let products: OrderProduct[] = JSON.parse(productsOrNull)
 
       this.productsInCart = products
       this.$productInCart.next(this.productsInCart.slice());

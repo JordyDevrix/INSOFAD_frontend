@@ -6,6 +6,7 @@ import { Product } from '../models/product.model';
 import { OrderService } from '../services/order.service';
 import { AuthService } from '../auth/auth.service';
 import { Order } from '../models/order.model';
+import {OrderProduct} from "../models/orderproduct.model";
 
 @Component({
   selector: 'app-cart',
@@ -15,13 +16,13 @@ import { Order } from '../models/order.model';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit {
-  public cartProducts: Product[];
+  public cartProducts: OrderProduct[];
   productsPrice: number;
   totalPrice: number;
   shippingCosts: number = 99.95;
   userIsLoggedIn: boolean;
   order: Order = {
-  "products": [], 
+  "orderProducts": [],
   "totalPrice": 0
   };
 
@@ -31,8 +32,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cartProducts = this.cartService.allProductsInCart();
-    this.cartService.$productInCart.subscribe((products: Product[]) => {
-      this.cartProducts = products;
+    this.cartService.$productInCart.subscribe((orderProducts: OrderProduct[]) => {
+      this.cartProducts = orderProducts;
       this.getTotalPrice();
       this.checkLoginState();
     });
@@ -43,13 +44,13 @@ export class CartComponent implements OnInit {
   }
 
   getTotalPrice() {
-    this.productsPrice = this.cartProducts.reduce((acc, curr) => acc + curr.productProperties[0].price, 0)
+    this.productsPrice = this.cartProducts.reduce((acc, curr) => acc + curr.productProperties.price, 0)
     this.totalPrice = this.productsPrice + this.shippingCosts;
   }
 
   onPlaceOrder() {
     if (this.cartProducts.length != 0) {
-      this.order.products = this.cartProducts;
+      this.order.orderProducts = this.cartProducts;
       this.order.totalPrice = this.totalPrice;
       this.orderService.placeOrder(this.order).subscribe();
       this.cartService.removeAllProductsFromCart();

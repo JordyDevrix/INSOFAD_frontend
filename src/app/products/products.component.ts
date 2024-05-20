@@ -4,6 +4,7 @@ import {CartService} from '../services/cart.service';
 import {Product} from '../models/product.model';
 import {ProductsService} from '../services/products.service';
 import {AuthService} from '../auth/auth.service';
+import {OrderProduct} from "../models/orderproduct.model";
 
 @Component({
     selector: 'app-products',
@@ -14,6 +15,7 @@ export class ProductsComponent {
     public productList: Product[] = new Array<Product>();
     public loadedProducts: Product[] = new Array<Product>();
     public loadingProducts: boolean = true;
+    public orderProduct: OrderProduct;
     selectedCategory: string;
     userIsLoggedIn: boolean;
 
@@ -31,9 +33,9 @@ export class ProductsComponent {
             });
     }
 
-    public onBuyProduct(product: Product) {
+    public onBuyProduct(orderProduct: OrderProduct) {
         if (this.userIsLoggedIn) {
-            this.cartService.addProductToCart(product);
+            this.cartService.addProductToCart(orderProduct);
         } else {
             alert("Please log in to add products to your cart")
         }

@@ -6,6 +6,7 @@ import { ProductsService } from '../../services/products.service';
 import { Category } from '../../models/category.model';
 import { AuthService } from '../../auth/auth.service';
 import { CartService } from '../../services/cart.service';
+import { OrderProduct } from '../../models/orderproduct.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -25,12 +26,14 @@ export class ProductDetailComponent implements OnInit{
   public clickedStyle: string = '#FFF';
   public showPlus: boolean = true;
   public productProperties: any;
+  public orderProduct: OrderProduct;
+  public productToBuy: OrderProduct;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService,
     private authService: AuthService,
-    private cartService: CartService
+    private cartService: CartService,
   ) { }
 
   ngOnInit() {
@@ -48,10 +51,19 @@ export class ProductDetailComponent implements OnInit{
       });
   }
 
-  public buyProduct(product: Product) {
+  public buyProduct(product: Product, index: number): void {
     console.log(product);
+    this.productToBuy = {
+        id: product.id,
+        name: product.name,
+        brand: product.brand,
+        category: product.category,
+        imagePath: product.imagePath,
+        description: product.description,
+        productProperties: product.productProperties[index],
+    }
     console.log("Product gekocht")
-    this.cartService.addProductToCart(product)
+    this.cartService.addProductToCart(this.productToBuy);
     this.text = 'Added to cart';
     this.clickedStyle = '#0C7';
     this.showPlus = false;

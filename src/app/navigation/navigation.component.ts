@@ -5,6 +5,7 @@ import { CartService } from '../services/cart.service';
 import { Product } from '../models/product.model';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth/auth.service';
+import {OrderProduct} from "../models/orderproduct.model";
 
 @Component({
   selector: 'app-navigation',
@@ -23,7 +24,7 @@ export class NavigationComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-    this.cartService.$productInCart.subscribe((products: Product[]) => {
+    this.cartService.$productInCart.subscribe((products: OrderProduct[]) => {
       this.amountOfProducts = products.length;
       this.checkLoginState();
     })

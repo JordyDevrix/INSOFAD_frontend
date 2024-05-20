@@ -7,14 +7,6 @@
     <hr>
     <div class="d-flex align-items-center">
         <h3 class="p-2" style="margin: 0px;">{{ product.productProperties[0].price | currency }}</h3>
-        <button (click)="buyProduct(product)" class="btn btn-primary p-2"
-                style="margin-left: 1em; border-radius: 1000px;" [ngStyle]="{'color': clickedStyle}"
-                *ngIf="userIsLoggedIn">
-            {{ text }}
-            @if (showPlus) {
-                <i class="fa-solid fa-plus"></i>
-            }
-        </button>
     </div>
     <h4>Models</h4>
     <ul>
@@ -26,6 +18,14 @@
                     Material {{ property.material }} -
                     <strong>Price: {{ property.price | currency }}</strong>
                 </p>
+                <button (click)="buyProduct(product, $index)" class="btn btn-primary p-2"
+                        style="margin-left: 1em; border-radius: 1000px;" [ngStyle]="{'color': clickedStyle}"
+                        *ngIf="userIsLoggedIn">
+                    {{ text }}
+                    @if (showPlus) {
+                        <i class="fa-solid fa-plus"></i>
+                    }
+                </button>
             </li>
         }
     </ul>

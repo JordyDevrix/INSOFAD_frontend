@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthResponse } from './auth-response.model';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
@@ -6,6 +6,8 @@ import { AuthRequest } from './auth-request.model';
 import { TokenService } from './token.service';
 import { environment } from '../../environments/environment';
 import { Customer } from '../models/customer.model';
+import { AccountService } from "../services/account.service";
+import {authGuard} from "./auth.guard";
 
 @Injectable({
   providedIn: 'root'
@@ -69,8 +71,7 @@ export class AuthService {
     }
   }
 
-  public getCurrentUser(): Observable<Customer> {
-    return this.http.get<Customer>(this.getUser)
+  public getToken(): string | null {
+    return this.tokenService.loadToken();
   }
-
 }

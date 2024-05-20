@@ -4,6 +4,7 @@ import { Order } from '../models/order.model';
 import { AuthService } from '../auth/auth.service';
 import { CurrencyPipe } from '@angular/common';
 import { Customer } from '../models/customer.model';
+import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-order-history',
@@ -13,7 +14,7 @@ import { Customer } from '../models/customer.model';
   styleUrl: './order-history.component.scss'
 })
 export class OrderHistoryComponent implements OnInit{
-  constructor(private orderService: OrderService, private authService: AuthService) {}
+  constructor(private orderService: OrderService, private authService: AuthService, private accountService: AccountService) {}
 
   public orderList: Order[];
   customer: Customer;
@@ -24,9 +25,10 @@ export class OrderHistoryComponent implements OnInit{
     .subscribe((orders: Order[]) => {
         this.orderList = orders;
     });
-    this.authService.getCurrentUser()
-    .subscribe((customer: Customer) => {
+    console.log(this.authService.getToken())
+    this.accountService.getCustomer().subscribe((customer: Customer) => {
       this.customer = customer;
+      console.log(this.customer);
     });
   }
 }

@@ -5,7 +5,7 @@ import {OrderProduct} from "./orderproduct.model";
 export class Order {
   public id?: number;
   public customer?: Customer;
-  public orderProducts: OrderProduct[];
+  public products: OrderProduct[];
   public totalPrice: number;
   public orderStatus?: string;
 }

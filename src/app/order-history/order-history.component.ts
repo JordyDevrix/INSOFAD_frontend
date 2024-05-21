@@ -24,6 +24,7 @@ export class OrderHistoryComponent implements OnInit{
     .getOrders()
     .subscribe((orders: Order[]) => {
         this.orderList = orders;
+        console.log(this.orderList);
     });
     console.log(this.authService.getToken())
     this.accountService.getCustomer().subscribe((customer: Customer) => {

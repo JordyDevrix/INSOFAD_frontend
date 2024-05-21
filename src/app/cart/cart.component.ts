@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
   shippingCosts: number = 99.95;
   userIsLoggedIn: boolean;
   order: Order = {
-  "orderProducts": [],
+  "products": [],
   "totalPrice": 0
   };
 
@@ -50,8 +50,9 @@ export class CartComponent implements OnInit {
 
   onPlaceOrder() {
     if (this.cartProducts.length != 0) {
-      this.order.orderProducts = this.cartProducts;
+      this.order.products = this.cartProducts;
       this.order.totalPrice = this.totalPrice;
+      console.log(this.order);
       this.orderService.placeOrder(this.order).subscribe();
       this.cartService.removeAllProductsFromCart();
       alert("Thank you for your order!")

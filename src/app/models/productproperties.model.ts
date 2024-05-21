@@ -1,8 +1,8 @@
 
 export class ProductProperties {
-    public id: number;
-    public size: string;
     public color: string;
-    public material: number;
+    public id: number;
+    public material: string;
     public price: number;
+    public size: string;
 }

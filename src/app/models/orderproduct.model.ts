@@ -6,6 +6,10 @@ export class OrderProduct {
     public name: string;
     public imagePath: string;
     public description: string;
+    public price: number;
+    public color: string;
+    public size: string;
+    public material: string;
     public productProperties: ProductProperties;
     public brand: string;
     public category: Category;

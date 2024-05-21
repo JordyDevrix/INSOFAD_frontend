@@ -56,11 +56,15 @@ export class ProductDetailComponent implements OnInit{
     this.productToBuy = {
         id: product.id,
         name: product.name,
-        brand: product.brand,
-        category: product.category,
         imagePath: product.imagePath,
         description: product.description,
+        price: product.productProperties[index].price,
+        color: product.productProperties[index].color,
+        size: product.productProperties[index].size,
+        material: product.productProperties[index].material,
         productProperties: product.productProperties[index],
+        brand: product.brand,
+        category: product.category,
     }
     console.log("Product gekocht")
     this.cartService.addProductToCart(this.productToBuy);

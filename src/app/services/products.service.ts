@@ -29,4 +29,8 @@ export class ProductsService {
   public updateProductByIndex(id: number, product: Product): Observable<Product> {
     return this.http.put<Product>(`${this.baseUrl}/${id}`, product);
   }
+
+    public removeProduct(id: number): Observable<void> {
+        return this.http.delete<void>(`${this.baseUrl}/${id}`);
+    }
 }

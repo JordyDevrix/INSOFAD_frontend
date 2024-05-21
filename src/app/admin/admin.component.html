@@ -1,0 +1,48 @@
+<div class="admincontainer">
+    <h3>Add product</h3>
+    <form [formGroup]="addProduct" (ngSubmit)="onAddProduct()">
+        <div style="display: flex">
+            <input placeholder="name" type="text" class="form-control" formControlName="name" id="name">
+            <input placeholder="brand" type="text" class="form-control" formControlName="brand" id="brand">
+        </div>
+        <input placeholder="price" type="number" class="form-control" formControlName="price" id="price">
+        <input placeholder="description" type="text" class="form-control" formControlName="description"
+               id="description">
+        <input placeholder="size" type="text" class="form-control" formControlName="size" id="size">
+        <input placeholder="material" type="text" class="form-control" formControlName="material" id="material">
+        <input placeholder="color" type="text" class="form-control" formControlName="color" id="color">
+        <input placeholder="image" type="url" class="form-control" formControlName="image" id="image">
+        <input placeholder="category" type="text" class="form-control" formControlName="category" id="category">
+        <button type="submit" class="btn btn-md btn-dark" [disabled]="!addProduct.valid">Add product</button>
+    </form>
+</div>
+<div>
+    <h3>Remove product</h3>
+    <ul>
+        @for (product of products; track $index) {
+            <div class="product">
+                <h5 style="margin: 1px">{{ product.brand }} {{ product.name }}</h5>
+                <button style="margin: 1px" (click)="onRemoveProduct(product.id)" class="btn-outline-primary">
+                    Remove
+                </button>
+                <div class="productvariants">
+                @for (property of product.productProperties; track $index) {
+                    <li style="margin-bottom: 2em" class="variant">
+                        <div style="margin: 1px">
+                            <p style="margin: 1px">
+                                Size <strong>{{ property.size }}</strong><br>
+                                Material <strong>{{ property.material }}</strong><br>
+                                Color <strong>{{ property.color }}</strong>
+                            </p>
+                            <p style="margin: 1px">{{ property.price | currency }}</p>
+                        </div>
+                        <button style="margin: 1px" (click)="onRemoveVariant(product.id)" class="btn-outline-primary">
+                            Remove
+                        </button>
+                    </li>
+                }
+                </div>
+            </div>
+        }
+    </ul>
+</div>

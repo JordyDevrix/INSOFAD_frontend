@@ -1,0 +1,32 @@
+input {
+  margin-bottom: 5px;
+}
+
+#description {
+  line-height: normal;
+}
+
+.admincontainer {
+  margin-bottom: 3em;
+}
+
+li {
+  list-style-type: none;
+}
+
+.product {
+  background-color: #f9f9f9;
+  margin-bottom: 1em;
+}
+
+.productvariants {
+  margin-top: 1em;
+  margin-left: 1em;
+  display: flex;
+}
+
+.variant {
+  padding: 5px;
+  background-color: #e3e3e3;
+  margin-right: 2em;
+}

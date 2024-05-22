@@ -23,4 +23,8 @@ export class OrderService {
   public getOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(this.baseUrl)
   }
+
+  public getAllOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.baseUrl + "/all")
+  }
 }

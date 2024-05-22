@@ -1,15 +1,30 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavComponent} from "../nav/nav.component";
+import {Order} from "../../models/order.model";
+import {OrderService} from "../../services/order.service";
+import {CurrencyPipe} from "@angular/common";
 
 @Component({
-  selector: 'app-stats',
-  standalone: true,
-  imports: [
-    NavComponent
-  ],
-  templateUrl: './stats.component.html',
-  styleUrl: './stats.component.scss'
+    selector: 'app-stats',
+    standalone: true,
+    imports: [
+        NavComponent,
+        CurrencyPipe
+    ],
+    templateUrl: './stats.component.html',
+    styleUrl: './stats.component.scss'
 })
-export class StatsComponent {
+export class StatsComponent implements OnInit {
+    public orders: Order[] = [];
 
+    constructor(
+        private orderService: OrderService
+    ) {}
+
+    ngOnInit(): void {
+        this.orderService.getAllOrders().subscribe((orders) => {
+            this.orders = orders;
+            console.log(orders);
+        });
+    }
 }

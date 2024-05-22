@@ -32,8 +32,10 @@
 <p>Loading products...</p>
 } @else {
     <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
-    @for (product of loadedProducts; track $index){
-    <app-product-thumbnail [product]="product" [index]="$index" (onBuyProduct)="onBuyProduct(orderProduct)"></app-product-thumbnail>
+    @for (product of loadedProducts; track $index) {
+        @if (product.productProperties.length > 0) {
+            <app-product-thumbnail [product]="product" [index]="$index" (onBuyProduct)="onBuyProduct(orderProduct)"></app-product-thumbnail>
+        }
     }
     </div>
 }

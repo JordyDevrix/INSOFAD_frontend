@@ -8,6 +8,11 @@ import { AuthService } from '../auth/auth.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
 
 }

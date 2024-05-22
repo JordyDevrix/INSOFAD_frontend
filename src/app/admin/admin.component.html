@@ -25,23 +25,27 @@
                     </button>
                     <div class="productvariants">
                         <h6>Variants</h6>
-                        <ul class="variantlist">
-                        @for (property of product.productProperties; track $index) {
-                            <li class="variant">
-                                <div style="margin: 1px">
-                                    <p style="margin: 1px">
-                                        Size <strong>{{ property.size }}</strong><br>
-                                        Material <strong>{{ property.material }}</strong><br>
-                                        Color <strong>{{ property.color }}</strong>
-                                    </p>
-                                    <p style="margin: 1px">{{ property.price | currency }}</p>
-                                </div>
-                                <button style="margin: 1px" (click)="onRemoveVariant(property.id)" class="btn-outline-primary">
-                                    Remove
-                                </button>
-                            </li>
+                        @if (product.productProperties.length == 0) {
+                            <p style="color: brown">No variants</p>
+                        } @else {
+                            <ul class="variantlist">
+                            @for (property of product.productProperties; track $index) {
+                                <li class="variant">
+                                    <div style="margin: 1px">
+                                        <p style="margin: 1px">
+                                            Size <strong>{{ property.size }}</strong><br>
+                                            Material <strong>{{ property.material }}</strong><br>
+                                            Color <strong>{{ property.color }}</strong>
+                                        </p>
+                                        <p style="margin: 1px">{{ property.price | currency }}</p>
+                                    </div>
+                                    <button style="margin: 1px" (click)="onRemoveVariant(property.id)" class="btn-outline-primary">
+                                        Remove
+                                    </button>
+                                </li>
+                            }
+                            </ul>
                         }
-                        </ul>
                     </div>
                 </div>
             </div>

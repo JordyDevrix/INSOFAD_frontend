@@ -5,6 +5,8 @@ import {Observable} from 'rxjs';
 
 import {environment} from '../../environments/environment';
 import {Product} from '../models/product.model';
+import {Category} from "../models/category.model";
+import {ProductProperties} from "../models/productproperties.model";
 
 @Injectable({
     providedIn: 'root'
@@ -37,5 +39,10 @@ export class ProductsService {
 
     public removeVariant(id: number) {
         return this.http.delete<void>(`${this.baseUrl}/variant/${id}`);
+    }
+
+    public addVariant(variant: ProductProperties, id: number) {
+        return this.http.post<ProductProperties>(`${this.baseUrl}/properties/${id}`, variant);
+
     }
 }

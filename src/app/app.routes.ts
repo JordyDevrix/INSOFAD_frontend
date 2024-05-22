@@ -8,6 +8,9 @@ import {RegisterComponent} from './auth/register/register.component';
 import {OrderHistoryComponent} from './order-history/order-history.component';
 import {ProductDetailComponent} from "./products/product-detail/product-detail.component";
 import {AdminComponent} from "./admin/admin.component";
+import {AddproductComponent} from "./admin/addproduct/addproduct.component";
+import {RemoveproductComponent} from "./admin/removeproduct/removeproduct.component";
+import {StatsComponent} from "./admin/stats/stats.component";
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -17,5 +20,8 @@ export const routes: Routes = [
     {path: 'orders', component: OrderHistoryComponent},
     {path: 'account/login', component: LoginComponent},
     {path: 'account/register', component: RegisterComponent},
-    {path: 'admin', component: AdminComponent}
+    {path: 'admin', component: AdminComponent},
+    {path: 'admin/addproduct', component: AddproductComponent},
+    {path: 'admin/removeproduct', component: RemoveproductComponent},
+    {path: 'admin/stats', component: StatsComponent}
 ];

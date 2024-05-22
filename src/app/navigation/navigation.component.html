@@ -28,11 +28,6 @@
                         }
                     </a>
                 </li>
-                @if (userIsLoggedIn && customer.role === "ROLE_ADMIN") {
-                    <li class="nav-item">
-                        <a class="nav-link" [routerLinkActive]="['active']" routerLink="/admin">Admin</a>
-                    </li>
-                }
             </ul>
         </div>
 
@@ -44,6 +39,11 @@
                 @if (userIsLoggedIn) {
                     <li><a class="dropdown-item" routerLink="/orders" style="cursor: pointer;">View profile</a></li>
                     <li><a class="dropdown-item" (click)="onLogout()" style="cursor: pointer;">Log out</a></li>
+                    @if (admin == "ROLE_ADMIN") {
+                        <li class="dropdown-item">
+                            <a class="nav-link" routerLink="/admin">Admin</a>
+                        </li>
+                    }
                 } @else {
                     <li><a class="dropdown-item" routerLink="/account/login" style="cursor: pointer;">Login</a></li>
                     <li><a class="dropdown-item" routerLink="/account/register" style="cursor: pointer;">Register</a>

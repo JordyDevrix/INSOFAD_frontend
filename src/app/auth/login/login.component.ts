@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
             .login(this.loginForm.value)
             .subscribe((authReponse: AuthResponse) => {
                 console.log('AuthResponse: ', authReponse);
-                this.router.navigate(['']);
+                this.router.navigate(['']).then(r => window.location.reload());
             });
     }
 }

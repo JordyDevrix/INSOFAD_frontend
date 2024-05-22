@@ -16,6 +16,8 @@ import {CurrencyPipe} from "@angular/common";
 })
 export class StatsComponent implements OnInit {
     public orders: Order[] = [];
+    public totalProfit: number;
+    public biggestOrder: Order;
 
     constructor(
         private orderService: OrderService
@@ -24,7 +26,10 @@ export class StatsComponent implements OnInit {
     ngOnInit(): void {
         this.orderService.getAllOrders().subscribe((orders) => {
             this.orders = orders;
+            this.totalProfit = this.orders.map(order => order.totalPrice).reduce((a, b) => a + b, 0);
+            this.biggestOrder = this.orders.reduce((a, b) => a.totalPrice > b.totalPrice ? a : b);
             console.log(orders);
         });
+
     }
 }

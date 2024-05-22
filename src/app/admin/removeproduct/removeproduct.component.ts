@@ -6,13 +6,15 @@ import {Category} from "../../models/category.model";
 import {ProductsService} from "../../services/products.service";
 import {CategoryService} from "../../services/category.service";
 import {Router} from "@angular/router";
+import {NavComponent} from "../nav/nav.component";
 
 @Component({
   selector: 'app-removeproduct',
   standalone: true,
-    imports: [
-        CurrencyPipe
-    ],
+  imports: [
+    CurrencyPipe,
+    NavComponent
+  ],
   templateUrl: './removeproduct.component.html',
   styleUrl: './removeproduct.component.scss'
 })

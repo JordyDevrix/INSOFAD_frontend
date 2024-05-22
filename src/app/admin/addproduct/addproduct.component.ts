@@ -6,12 +6,14 @@ import {Category} from "../../models/category.model";
 import {ProductsService} from "../../services/products.service";
 import {CategoryService} from "../../services/category.service";
 import {Router} from "@angular/router";
+import {NavComponent} from "../nav/nav.component";
 
 @Component({
   selector: 'app-addproduct',
   standalone: true,
     imports: [
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NavComponent
     ],
   templateUrl: './addproduct.component.html',
   styleUrl: './addproduct.component.scss'

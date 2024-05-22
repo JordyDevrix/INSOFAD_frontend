@@ -7,6 +7,7 @@ import {Router, RouterLink} from "@angular/router";
 import {Category} from "../models/category.model";
 import {CategoryService} from "../services/category.service";
 import {ProductProperties} from "../models/productproperties.model";
+import {NavComponent} from "./nav/nav.component";
 
 @Component({
     selector: 'app-admin',
@@ -14,7 +15,8 @@ import {ProductProperties} from "../models/productproperties.model";
     imports: [
         ReactiveFormsModule,
         CurrencyPipe,
-        RouterLink
+        RouterLink,
+        NavComponent
     ],
     templateUrl: './admin.component.html',
     styleUrl: './admin.component.scss'

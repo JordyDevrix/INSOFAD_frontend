@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ProductsService} from "../services/products.service";
 import {Product} from "../models/product.model";
 import {CurrencyPipe} from "@angular/common";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {Category} from "../models/category.model";
 import {CategoryService} from "../services/category.service";
 import {ProductProperties} from "../models/productproperties.model";
@@ -13,7 +13,8 @@ import {ProductProperties} from "../models/productproperties.model";
     standalone: true,
     imports: [
         ReactiveFormsModule,
-        CurrencyPipe
+        CurrencyPipe,
+        RouterLink
     ],
     templateUrl: './admin.component.html',
     styleUrl: './admin.component.scss'

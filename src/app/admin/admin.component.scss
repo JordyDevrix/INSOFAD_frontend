@@ -1,45 +1,27 @@
-input, select {
-  margin-bottom: 5px;
-}
 
-#description {
-  line-height: normal;
-}
-
-.admincontainer {
-  margin-bottom: 3em;
-}
-
-li {
+ul {
   list-style-type: none;
-}
-
-.product {
+  padding: 0;
+  margin-bottom: 10em;
   display: flex;
-  background-color: #f9f9f9;
-  margin-bottom: 1em;
-  padding: 1em;
+  justify-content: start;
+
+  li {
+    margin-left: 1em;
+    margin-right: 1em;
+
+    a {
+      text-decoration: none;
+      color: #000000;
+      display: block;
+      padding: 1em;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+
+      &:hover {
+        background-color: #e3e3e3;
+      }
+    }
+  }
 }
 
-.productvariants {
-  margin-top: 1em;
-  margin-left: 1em;
-}
-
-.variantlist {
-  display: flex;
-  overflow-x: scroll;
-  width: 50vw;
-}
-
-.variant {
-  padding: 5px;
-  background-color: #e3e3e3;
-  margin-right: 2em;
-  border-radius: 5px;
-  margin-bottom: 1em;
-}
-
-img {
-  margin: 2em;
-}

@@ -3,6 +3,8 @@ import {NavComponent} from "../nav/nav.component";
 import {Order} from "../../models/order.model";
 import {OrderService} from "../../services/order.service";
 import {CurrencyPipe} from "@angular/common";
+import {Product} from "../../models/product.model";
+import {ProductsService} from "../../services/products.service";
 
 @Component({
     selector: 'app-stats',
@@ -18,9 +20,11 @@ export class StatsComponent implements OnInit {
     public orders: Order[] = [];
     public totalProfit: number;
     public biggestOrder: Order;
+    public products: Product[] = [];
 
     constructor(
-        private orderService: OrderService
+        private orderService: OrderService,
+        private productsService: ProductsService
     ) {}
 
     ngOnInit(): void {
@@ -30,6 +34,5 @@ export class StatsComponent implements OnInit {
             this.biggestOrder = this.orders.reduce((a, b) => a.totalPrice > b.totalPrice ? a : b);
             console.log(orders);
         });
-
     }
 }

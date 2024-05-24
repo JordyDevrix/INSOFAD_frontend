@@ -5,4 +5,5 @@ export class ProductProperties {
     public material: string;
     public price: number;
     public size: string;
+    public stock: number;
 }

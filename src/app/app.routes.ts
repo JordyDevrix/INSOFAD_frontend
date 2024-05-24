@@ -11,6 +11,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {AddproductComponent} from "./admin/addproduct/addproduct.component";
 import {RemoveproductComponent} from "./admin/removeproduct/removeproduct.component";
 import {StatsComponent} from "./admin/stats/stats.component";
+import {ViewproductsComponent} from "./admin/viewproducts/viewproducts.component";
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -23,5 +24,6 @@ export const routes: Routes = [
     {path: 'admin', component: AdminComponent},
     {path: 'admin/addproduct', component: AddproductComponent},
     {path: 'admin/removeproduct', component: RemoveproductComponent},
-    {path: 'admin/stats', component: StatsComponent}
+    {path: 'admin/stats', component: StatsComponent},
+    {path: 'admin/products', component: ViewproductsComponent}
 ];

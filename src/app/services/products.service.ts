@@ -45,4 +45,8 @@ export class ProductsService {
         return this.http.post<ProductProperties>(`${this.baseUrl}/properties/${id}`, variant);
 
     }
+
+    public updateProduct(product: Product) {
+        return this.http.put<Product>(`${this.baseUrl}/${product.id}`, product);
+    }
 }

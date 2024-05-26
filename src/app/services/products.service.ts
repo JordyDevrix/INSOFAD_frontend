@@ -49,4 +49,12 @@ export class ProductsService {
     public updateProduct(product: Product) {
         return this.http.put<Product>(`${this.baseUrl}/${product.id}`, product);
     }
+
+    public updateProductProperties(propertyId: number, property: ProductProperties) {
+        return this.http.put<Product>(`${this.baseUrl}/properties/${propertyId}`, property);
+    }
+
+    public buyProductWithAmount(propertyId: number, amount: number, property: ProductProperties) {
+        return this.http.put<Product>(`${this.baseUrl}/properties/${propertyId}/${amount}`, property);
+    }
 }

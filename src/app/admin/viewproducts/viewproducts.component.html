@@ -27,7 +27,8 @@
                                                 Stock <strong>{{ property.stock }}</strong>
                                             </p>
                                             <p style="margin: 1px">{{ property.price | currency }}</p>
-                                            <button (click)="addStock(product, property)">Add stock</button>
+                                            <button (click)="addStock(product, property)">Buy 1x stock</button>
+                                            <button (click)="addStockAmount(product, property)">Buy 10x stock</button>
                                         </div>
                                     </li>
                                 }

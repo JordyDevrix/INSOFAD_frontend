@@ -33,8 +33,16 @@ export class ViewproductsComponent implements OnInit {
 
   public addStock(product: Product, property: ProductProperties) {
     property.stock++;
-    this.productsService.updateProduct(product).subscribe(() => {
+    this.productsService.updateProductProperties(property.id, property).subscribe(() => {
       console.log('Stock updated');
     });
   }
+
+    public addStockAmount(product: Product, property: ProductProperties) {
+        const amount: number = 10;
+        property.stock += amount;
+        this.productsService.buyProductWithAmount(property.id, amount, property).subscribe(() => {
+            console.log('Stock updated');
+        });
+    }
 }

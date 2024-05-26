@@ -68,14 +68,6 @@ export class ProductDetailComponent implements OnInit{
     }
     console.log("Product gekocht")
     this.cartService.addProductToCart(this.productToBuy);
-    this.text = 'Added to cart';
-    this.clickedStyle = '#0C7';
-    this.showPlus = false;
-    setTimeout(() => {
-      this.text = 'Add to cart';
-      this.clickedStyle = '#FFF';
-      this.showPlus = true;
-    } , 1300);
   }
 
   public checkLoginState(): void{

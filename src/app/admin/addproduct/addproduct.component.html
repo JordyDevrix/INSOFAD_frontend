@@ -31,8 +31,8 @@
         <input placeholder="size*" type="text" class="form-control" formControlName="size" id="size">
         <input placeholder="material*" type="text" class="form-control" formControlName="material" id="material">
         <input placeholder="color*" type="text" class="form-control" formControlName="color" id="color">
-        <input placeholder="price*" type="number" class="form-control" formControlName="price" id="price">
+        <input placeholder="price*" type="text" class="form-control" formControlName="price" id="price">
         <p>* = mandatory</p>
-        <button type="submit" class="btn btn-md btn-dark" [disabled]="!addVariant.valid">Add product</button>
+        <button type="submit" id="addVar" class="btn btn-md btn-dark" [disabled]="!addVariant.valid">Add product</button>
     </form>
 </div>

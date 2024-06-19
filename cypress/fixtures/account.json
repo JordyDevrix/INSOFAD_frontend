@@ -1,0 +1,8 @@
+{
+  "id": "70f1473d-2e43-4eb4-bd9f-e419d20501b9",
+  "firstName": "Bob",
+  "lastName": "Webshop",
+  "email": "bob@bobsluxuryenterprise.com",
+  "password": "$2a$10$Pt9kYQTWNncqkgYlfv3fze86LGGSqXxmGSrGP0lUklo.VbH9d7ej.",
+  "role": "ROLE_ADMIN"
+}

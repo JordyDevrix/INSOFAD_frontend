@@ -1,5 +1,10 @@
-describe('test een', () =>{
+import window = Mocha.reporters.Base.window;
+
+describe('product page test', () =>{
     it('should visit productpage', function () {
+        // cy.intercept("GET", 'http://localhost:8080/api/products', {fixture: 'product.json'})
+        // cy.intercept("GET", 'http://localhost:8080/api/products/1', {fixture: 'product1.json'})
+
         cy.visit("localhost:4200")
         cy.wait(400)
         cy.contains('Products').click()
@@ -10,8 +15,13 @@ describe('test een', () =>{
     })
 })
 
-describe('test twee', () =>{
+describe('product order test', () =>{
     it('should buy a product', function () {
+        // cy.intercept("POST", 'http://localhost:8080/api/orders', {fixture: 'loginsucces.json'})
+        // cy.intercept("GET", 'http://localhost:8080/api/products', {fixture: 'product.json'})
+        // cy.intercept("GET", 'http://localhost:8080/api/products/1', {fixture: 'product1.json'})
+        // cy.intercept("GET", 'http://localhost:8080/api/account', {fixture: 'account.json'})
+
         cy.visit("localhost:4200")
         cy.wait(400)
         cy.get('#dropdownMenu').click()
@@ -23,6 +33,9 @@ describe('test twee', () =>{
         cy.get('#password1').type('Test123!')
         cy.get('#submit').click()
         cy.wait(2000)
+        // cy.fixture('loginsucces.json').then((loginsucces) => {
+        //     window.localStorage.setItem('token', loginsucces);
+        // })
         cy.contains('Products').click()
         cy.url().should("eq", "http://localhost:4200/products")
         cy.contains('Show detail').click()
@@ -34,7 +47,7 @@ describe('test twee', () =>{
     })
 })
 
-describe('test drie', () =>{
+describe('addmin panel acces', () =>{
     it('should visit admin page', function () {
         cy.visit("localhost:4200")
         cy.wait(400)
@@ -52,7 +65,7 @@ describe('test drie', () =>{
     })
 })
 
-describe('test vier', () =>{
+describe('adding a new product', () =>{
     it('should add a product', function () {
         cy.visit("localhost:4200")
         cy.wait(400)
@@ -80,7 +93,7 @@ describe('test vier', () =>{
     })
 })
 
-describe('test vijf', () =>{
+describe('removing a product', () =>{
     it('should remove a product', function () {
         cy.visit("localhost:4200")
         cy.wait(400)
@@ -103,7 +116,7 @@ describe('test vijf', () =>{
     })
 })
 
-describe('test zes', () =>{
+describe('removing a variant', () =>{
     it('should remove a variant', function () {
         cy.visit("localhost:4200")
         cy.wait(400)
@@ -126,7 +139,7 @@ describe('test zes', () =>{
     })
 })
 
-describe('test zeven', () =>{
+describe('Buy stock', () =>{
     it('should add variant stock', function () {
         cy.visit("localhost:4200")
         cy.wait(400)
@@ -150,7 +163,7 @@ describe('test zeven', () =>{
     })
 })
 
-describe('test acht', () =>{
+describe('adding a new variant', () =>{
     it('should add variant', function () {
         cy.visit("localhost:4200")
         cy.wait(400)
